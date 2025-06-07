@@ -10,10 +10,6 @@ services:
       - KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME=connect
       - KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS=http://kafka-connect:8083
       - KAFKA_CLUSTERS_0_SCHEMAREGISTRY=http://schema-registry:8081
-    depends_on:
-      - kafka
-      - schema-registry
-      - kafka-connect
     networks:
       - kafka-net
   
@@ -24,8 +20,6 @@ services:
       - "8000:8000"
     volumes:
       - ./application.conf:/opt/docker/conf/application.conf
-    depends_on:
-      - kafka
     networks:
       - kafka-net
 
